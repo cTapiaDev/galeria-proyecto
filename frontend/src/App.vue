@@ -74,9 +74,13 @@ const handleSubmit = async () => {
     await fetchImages()
 
   } catch (error) {
-    errorMessage.value = `Error al subir imagen: ${error.message}`
+    // Línea para imprimir el error completo en la consola
+    console.error("Error detallado de Supabase:", error); 
+
+    // Mensaje de error más informativo para el usuario
+    errorMessage.value = `Error: ${error.message}. Revisa la consola para más detalles.`;
   } finally {
-    isLoading.value = false
+    isLoading.value = false;
   }
 }
 
