@@ -1,0 +1,32 @@
+# render.yaml
+services:
+  - type: web
+    name: galeria-api
+    env: docker
+    rootDir: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: galeria-db
+          property: connectionString
+      - key: CLOUDINARY_CLOUD_NAME
+        value: ctapiadev 
+      - key: CLOUDINARY_API_KEY
+        value: 249178258761284
+      - key: CLOUDINARY_API_SECRET
+        value: TZMI8vthEMcfT7-5qvQp6rxZWV0
+        sync: false
+
+  - type: web
+    name: galeria-web
+    env: docker
+    rootDir: ./frontend
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: VITE_API_URL
+        value: "https://galeria-api.onrender.com"
+
+databases:
+  - name: galeria-db
+    plan: free
