@@ -15,7 +15,6 @@ services:
       - key: CLOUDINARY_API_KEY
         value: 249178258761284
       - key: CLOUDINARY_API_SECRET
-        value: TZMI8vthEMcfT7-5qvQp6rxZWV0
         sync: false
 
   - type: web
